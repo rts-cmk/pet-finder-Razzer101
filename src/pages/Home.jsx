@@ -1,3 +1,4 @@
+import Filter from "../components/Filter";
 import Header from "../components/Header";
 import Intro from "../components/Intro";
 
@@ -6,6 +7,7 @@ export default function Home(){
         <>
             <Intro/>
             <Header/>
+            <Filter/>
         </>
     )
 }

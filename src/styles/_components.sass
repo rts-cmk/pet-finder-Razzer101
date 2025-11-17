@@ -37,11 +37,13 @@
         border-radius: 30px
 /* #endregion */
 
+/* #region Header */
 .header
     display: flex
     margin-top: 1.5em
-    padding: 0 2em
+    padding: 0 1.5em
     align-items: center
+    margin-bottom: 1.5em
 
     &__profile-picture
         width: 14%
@@ -49,7 +51,7 @@
         object-fit: cover
         border-radius: 50px
         margin-right: 1em
-        border: 3px solid #eaeaea
+        border: 3px solid #ffffff
         box-shadow: 5px 5px 15px 1px #57419d3e
 
     &__location
@@ -63,8 +65,8 @@
 
             &:first-child
                 color: var.$element-color
-                margin-right: 5px 
-            
+                margin-right: 5px
+
             &:last-child
                 color: var.$icons-color
                 margin-left: 10px
@@ -75,7 +77,39 @@
         padding: 12px
         line-height: 0px
         color: var.$icons-color
-        background-color: #eaeaea
+        background-color: transparent
         border: none
         border-radius: 50px
         box-shadow: 5px 5px 15px 1px #57419d3e
+/* #endregion */
+
+/* #region Filter */
+.filter
+    display: flex
+    overflow: scroll
+    white-space: nowrap
+    scroll-snap-type: x mandatory
+    -ms-overflow-style: none
+    scrollbar-width: none
+    height: 90px
+    align-items: center
+    padding: 0 1.5em
+    margin-bottom: 1em
+
+    &::-webkit-scrollbar
+        display: none
+
+    &__option
+        margin: 0 15px
+        scroll-snap-stop: always
+        scroll-snap-align: end
+        font-size: 1.3em
+        color: var.$element-color
+        box-shadow: 5px 5px 15px 1px #57419d3e
+        padding: 5px 20px
+        border-radius: 20px
+
+        &:first-child
+            margin-left: 0
+
+/* #endregion */
