@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router'
-import './App.css'
 import Home from './pages/Home'
 import Details from './pages/Details'
 import Error from './pages/Error'
