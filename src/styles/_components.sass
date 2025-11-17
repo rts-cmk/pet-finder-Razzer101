@@ -1,5 +1,6 @@
 @use "variables" as var
-    
+
+/* #region Intro */
 .intro
     display: flex
     flex-direction: column
@@ -18,13 +19,13 @@
         font-size: 2.8vmax
         font-weight: 800
         margin: 1em 0 1em 0
-    
+
     &__subtitle
         color: var.$p-color
         padding: 0 10vw
         font-size: 2vmax
         margin: 0
-    
+
     &__skip-btn
         margin: auto 3em 2em 3em
         background-color: var.$element-color
@@ -34,3 +35,47 @@
         font-size: 2vmax
         font-weight: 500
         border-radius: 30px
+/* #endregion */
+
+.header
+    display: flex
+    margin-top: 1.5em
+    padding: 0 2em
+    align-items: center
+
+    &__profile-picture
+        width: 14%
+        aspect-ratio: 1/1
+        object-fit: cover
+        border-radius: 50px
+        margin-right: 1em
+        border: 3px solid #eaeaea
+        box-shadow: 5px 5px 15px 1px #57419d3e
+
+    &__location
+        margin: 0 auto 10px 0
+        font-size: 1.1em
+
+        svg
+            font-size: 1.3em
+            position: relative
+            top: 5px
+
+            &:first-child
+                color: var.$element-color
+                margin-right: 5px 
+            
+            &:last-child
+                color: var.$icons-color
+                margin-left: 10px
+
+    &__notify-btn
+        justify-self: end
+        font-size: 1.7em
+        padding: 12px
+        line-height: 0px
+        color: var.$icons-color
+        background-color: #eaeaea
+        border: none
+        border-radius: 50px
+        box-shadow: 5px 5px 15px 1px #57419d3e
