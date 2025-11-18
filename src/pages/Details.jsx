@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from "react-router";
+import { useNavigate, useLoaderData, useParams } from "react-router";
 import { PiGenderIntersex, PiPawPrint } from "react-icons/pi";
 import { LuMapPin } from "react-icons/lu";
 
@@ -7,6 +7,7 @@ export default function Details(){
     const params = useParams()
     const pets = useLoaderData()
     const petData = pets[params.petId - 1]
+    const navigate = useNavigate()
 
     return(
         <section className="pet-details">
@@ -25,7 +26,7 @@ export default function Details(){
                     </li>
                 </ul>
                 <p className="details-info__description">{petData.long_description}</p>
-                <Link className="details-info__home" to="/">Back</Link>
+                <button onClick={() => navigate("/")} className="details-info__home" to="/">Back</button>
             </article>
         </section>
     )
