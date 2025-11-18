@@ -40,8 +40,7 @@
 /* #region Header */
 .header
     display: flex
-    margin-top: 1.5em
-    padding: 0 1.5em
+    padding: 1.5em 1.5em 0 1.5em
     align-items: center
     margin-bottom: 1.5em
 
@@ -117,6 +116,33 @@
 /* #endregion */
 
 /* #region Pets */
+
+.pet-box
+    display: flex
+    flex-direction: column
+    align-items: end
+
+    &:last-child
+        margin-bottom: 7em
+
+    &__favorite-btn
+        height: 0
+
+        button
+            position: relative
+            top: 15px
+            right: 15px
+            border-radius: 50%
+            box-shadow: 5px 5px 15px 1px #57419d3e
+            color: #FF4B33
+            border: none
+            align-self: start
+            padding: 1.5vmin 1.8vmin
+            svg
+                font-size: 4vmin
+                position: relative
+                top: 3px
+
 .pet-section
     display: flex
     flex-direction: column
@@ -129,9 +155,6 @@
         box-shadow: 5px 5px 15px 1px #57419d3e
         margin-bottom: 2em
         border-radius: 20px
-
-        &:last-child
-            margin-bottom: 7em
 
         &__img
             width: 32vw
@@ -150,19 +173,6 @@
                 margin: 10px 0 10px 0
                 color: #000000
                 font-size: 5.9vmin
-
-            &__favorite-btn
-                border-radius: 50%
-                box-shadow: 5px 5px 15px 1px #57419d3e
-                color: #FF4B33
-                border: none
-                align-self: start
-                padding: 1.5vmin 1.8vmin
-
-                svg
-                    font-size: 4vmin
-                    position: relative
-                    top: 3px
 
         &__location
             color: var.$p-color

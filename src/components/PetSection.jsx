@@ -9,17 +9,21 @@ export default function PetSection({ petData }){
             {
                 petData.map((elm) => {
                     return(
-                        <Link to={"details/" + elm.id} key={elm.id} className="pet-item">
-                            <img className="pet-item__img" src={elm.image} alt={elm.breed} />
-                            <article className="pet-info">
-                                <div className="pet-header">
-                                    <h2 className="pet-header__title">{elm.breed}</h2>
-                                    <button className="pet-header__favorite-btn"><BiSolidHeart /></button>
-                                </div>
-                                <p className="pet-info__location"><LuMapPin />{elm.location}</p>
-                                <p className="pet-info__description">{elm.short_description.slice(0, 51)}...</p>
-                            </article>
-                        </Link>
+                        <div className="pet-box">
+                            <div className="pet-box__favorite-btn">
+                                <button><BiSolidHeart /></button>
+                            </div>
+                            <Link to={"details/" + elm.id} key={elm.id} className="pet-item">
+                                <img className="pet-item__img" src={elm.image} alt={elm.breed} />
+                                <article className="pet-info">
+                                    <div className="pet-header">
+                                        <h2 className="pet-header__title">{elm.breed}</h2>
+                                    </div>
+                                    <p className="pet-info__location"><LuMapPin />{elm.location}</p>
+                                    <p className="pet-info__description">{elm.short_description.slice(0, 51)}...</p>
+                                </article>
+                            </Link>
+                        </div>
                     )
                 })
             }
