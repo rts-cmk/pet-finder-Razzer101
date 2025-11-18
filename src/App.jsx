@@ -1,16 +1,26 @@
-import { Route, Routes } from 'react-router'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home'
 import Details from './pages/Details'
 import Error from './pages/Error'
+import petsLoader from './loaders/petsLoader'
 
 function App() {
 
+  const browserRouter = createBrowserRouter([{
+    path: "/",
+    element: <Home/>,
+    loader: petsLoader,
+    hydrateFallbackElement: <p>Loading...</p>
+  },{
+    path: "/details/:petId",
+    element: <Details/>
+  },{
+    path: "*",
+    element: <Error/>
+  }])
+
   return (
-    <Routes>
-      <Route index element={<Home/>}/>
-      <Route path="details/:petId" element={<Details/>}/>
-      <Route path="*" element={<Error/>}/>
-    </Routes>
+    <RouterProvider router={browserRouter}/>
   )
 }
 

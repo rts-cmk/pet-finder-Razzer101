@@ -1,27 +1,13 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router"
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { LuMapPin } from "react-icons/lu";
 
-export default function PetSection(){
-
-    const [dogData, setDogData] = useState(null)
-
-    useEffect(() => {
-        const fetchFunction = async () => {
-            const url = new URL("http://localhost:4000/dogs")
-            const response = await fetch(url)
-            const data = await response.json()
-            setDogData(data)
-        }
-        fetchFunction()
-    },[])
+export default function PetSection({ petData }){
 
     return(
-        dogData !== null &&
         <section className="pet-section">
             {
-                dogData.map((elm) => {
+                petData.map((elm) => {
                     return(
                         <Link to={"details/" + elm.id} key={elm.id} className="pet-item">
                             <img className="pet-item__img" src={elm.image} alt={elm.breed} />
