@@ -13,7 +13,9 @@ function App() {
     hydrateFallbackElement: <p>Loading...</p>
   },{
     path: "/details/:petId",
-    element: <Details/>
+    element: <Details/>,
+    loader: petsLoader,
+    hydrateFallbackElement: <p>Loading...</p>
   },{
     path: "*",
     element: <Error/>

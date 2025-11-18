@@ -1,0 +1,90 @@
+@use "variables" as var
+
+/* #region Details */
+.pet-details
+    height: 100dvh
+    background-image: url("../../public/background.svg")
+    background-size: cover
+    display: flex
+    flex-direction: column
+
+    &__img
+        width: 60vmin
+        margin-top: 5em
+        align-self: end
+
+    .details-info
+        background-color: #F5F5FA
+        padding: 1.5em
+        border-radius: 20px 20px 0 0
+        height: 100%
+        display: flex
+        flex-direction: column
+
+        &__title
+            margin: 0
+            font-size: 6.4vmin
+
+        &__location
+            font-size: 3.7vmin
+            color: var.$p-color
+
+            svg
+                color: var.$icons-color
+                position: relative
+                top: 2px
+                margin-right: 8px
+
+        .details-extra-info
+            list-style: none
+            padding: 0
+            margin: 0
+            display: flex
+
+            li
+                display: flex
+                align-items: center
+
+                div
+                    font-size: 7vmin
+                    box-shadow: 5px 5px 15px 1px #57419d3e
+                    border-radius: 50%
+                    line-height: 0
+                    padding: 7px
+                    margin-right: 20px
+
+                p
+                    margin: 0
+
+                    &::first-letter
+                        text-transform: uppercase
+
+            &__breed
+                margin-right: 15vw
+
+                svg
+                    color: #F4B207
+
+            &__gender
+                svg
+                    color: #FF8893
+
+        &__description
+            color: var.$p-color
+            font-size: 4vmin
+            word-spacing: 3px
+            line-height: 1.5em
+
+        &__home
+            text-align: center
+            text-decoration: none
+            margin: auto 1em 15px 1em
+            background-color: var.$element-color
+            color: #ffffff
+            border: none
+            padding: 15px 0
+            font-size: 2vmax
+            font-weight: 500
+            border-radius: 30px
+            box-shadow: 5px 5px 15px 1px #57419d3e
+/* #endregion */
