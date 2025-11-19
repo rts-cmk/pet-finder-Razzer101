@@ -10,7 +10,7 @@ export default function Nav({home = "#BDBDBD", homeShadow, chat = "#BDBDBD", cha
         <nav className="navigation">
             <button onClick={() => {navigate("/")}} style={{color: home, boxShadow: homeShadow}} className="navigation__route" ><BiHomeAlt/></button>
             <button onClick={() => {navigate("/")}} style={{color: chat, boxShadow: chatShadow}} className="navigation__route" ><BiMessageRounded/></button>
-            <button onClick={() => {navigate("/")}} style={{color: favorite, boxShadow: favoriteShadow}} className="navigation__route" ><BiHeart/></button>
+            <button onClick={() => {navigate("/favorites")}} style={{color: favorite, boxShadow: favoriteShadow}} className="navigation__route" ><BiHeart/></button>
             <button onClick={() => {navigate("/")}} style={{color: profile, boxShadow: profileShadow}} className="navigation__route" ><GoPerson/></button>
         </nav>
     )
