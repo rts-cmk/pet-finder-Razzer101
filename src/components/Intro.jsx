@@ -5,6 +5,10 @@ export default function Intro(){
     const [isShowing, setIsShowing] = useState(true)
 
     if(isShowing === false){
+        localStorage.setItem("intro", "false")
+    }
+
+    if(isShowing === false || localStorage.getItem("intro")){
         return
     } else {
         return(
