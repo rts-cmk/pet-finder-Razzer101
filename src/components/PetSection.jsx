@@ -1,6 +1,6 @@
 import { Link } from "react-router"
-import { BiSolidHeart, BiHeart } from "react-icons/bi";
 import { LuMapPin } from "react-icons/lu";
+import FavoriteBtn from "./FavoriteBtn";
 
 export default function PetSection({ petData }){
 
@@ -11,7 +11,7 @@ export default function PetSection({ petData }){
                     return(
                         <div key={elm.id} className="pet-box">
                             <div className="pet-box__favorite-btn">
-                                <button><BiSolidHeart /></button>
+                                <FavoriteBtn elm={elm}/>
                             </div>
                             <Link to={"details/" + elm.id} className="pet-item">
                                 <img className="pet-item__img" src={elm.image} alt={elm.breed} />
