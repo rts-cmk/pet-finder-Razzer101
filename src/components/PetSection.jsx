@@ -1,8 +1,12 @@
 import { Link } from "react-router"
 import { LuMapPin } from "react-icons/lu";
 import FavoriteBtn from "./FavoriteBtn";
+import { useState } from "react";
 
 export default function PetSection({ petData }){
+
+    const [savefavorite, setSaveFavorite] = useState(JSON.parse(localStorage.getItem("favorites")) || [])
+    localStorage.setItem("favorites", JSON.stringify(savefavorite))
 
     return(
         <section className="pet-section">
@@ -11,7 +15,7 @@ export default function PetSection({ petData }){
                     return(
                         <div key={elm.id} className="pet-box">
                             <div className="pet-box__favorite-btn">
-                                <FavoriteBtn elm={elm}/>
+                                <FavoriteBtn elm={elm} save={setSaveFavorite}/>
                             </div>
                             <Link to={"details/" + elm.id} className="pet-item">
                                 <img className="pet-item__img" src={elm.image} alt={elm.breed} />
