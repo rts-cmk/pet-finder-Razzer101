@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Details from './pages/Details'
 import Error from './pages/Error'
 import petsLoader from './loaders/petsLoader'
+import detailLoader from './loaders/detailLoader'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   },{
     path: "/details/:petId",
     element: <Details/>,
-    loader: petsLoader,
+    loader: detailLoader,
     hydrateFallbackElement: <p>Loading...</p>
   },{
     path: "*",

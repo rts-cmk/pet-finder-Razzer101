@@ -9,11 +9,11 @@ export default function PetSection({ petData }){
             {
                 petData.map((elm) => {
                     return(
-                        <div className="pet-box">
+                        <div key={elm.id} className="pet-box">
                             <div className="pet-box__favorite-btn">
                                 <button><BiSolidHeart /></button>
                             </div>
-                            <Link to={"details/" + elm.id} key={elm.id} className="pet-item">
+                            <Link to={"details/" + elm.id} className="pet-item">
                                 <img className="pet-item__img" src={elm.image} alt={elm.breed} />
                                 <article className="pet-info">
                                     <div className="pet-header">
