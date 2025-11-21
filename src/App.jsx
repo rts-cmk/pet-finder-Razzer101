@@ -3,13 +3,15 @@ import Home from './pages/Home'
 import Details from './pages/Details'
 import Favorites from './pages/Favorites'
 import Error from './pages/Error'
+import PetSection from './components/PetSection'
+import DetailSection from './components/DetailSection'
+import FavoritesSection from './components/FavoritesSection'
 import dogLoader from './loaders/dogLoader'
 import catLoader from './loaders/catLoader'
 import detailDogLoader from './loaders/detailDogLoader'
-import favoriteLoader from './loaders/favoriteLoader'
-import PetSection from './components/PetSection'
-import DetailSection from './components/DetailSection'
 import detailCatLoader from './loaders/detailCatLoader'
+import favoriteDogLoader from './loaders/favoriteDogLoader'
+import favoriteCatLoader from './loaders/favoriteCatLoader'
 
 function App() {
 
@@ -53,8 +55,20 @@ function App() {
   },{
     path: "/favorites",
     element: <Favorites/>,
-    loader: favoriteLoader,
-    hydrateFallbackElement: <p>Loading...</p>
+    children: [
+      {
+        path: `${dogs}`,
+        element: <FavoritesSection animal={dogs}/>,
+        loader: favoriteDogLoader,
+        hydrateFallbackElement: <p>Loading...</p>,
+      },
+      {
+        path: `${cats}`,
+        element: <FavoritesSection animal={cats}/>,
+        loader: favoriteCatLoader,
+        hydrateFallbackElement: <p>Loading...</p>,
+      }
+    ]
   },{
     path: "*",
     element: <Error/>

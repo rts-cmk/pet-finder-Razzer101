@@ -10,7 +10,7 @@ export default function Home(){
         <>
             <Intro/>
             <Header/>
-            <Filter/>
+            <Filter navigation="/"/>
             <Outlet/>
             <Nav home="#5533EA" homeShadow="inset 5px 5px 10px .1px #57419d3a"/>
         </>

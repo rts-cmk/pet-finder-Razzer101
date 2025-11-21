@@ -1,23 +1,34 @@
-import { Link } from "react-router"
+import { Link, useLoaderData, useRevalidator } from "react-router"
 import { LuMapPin } from "react-icons/lu";
 import FavoriteBtn from "./FavoriteBtn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import favoriteDogLoader from "../loaders/favoriteDogLoader";
+import favoriteCatLoader from "../loaders/favoriteCatLoader";
 
-export default function FavoritesSection({ favoriteData }){
+export default function FavoritesSection({ animal }){
+
+    const petFavorites = useLoaderData()
+    const revalidator = useRevalidator();
 
     const [savefavorite, setSaveFavorite] = useState(JSON.parse(localStorage.getItem("favorites")) || [])
     localStorage.setItem("favorites", JSON.stringify(savefavorite))
 
+    useEffect(() => {
+        favoriteDogLoader()
+        favoriteCatLoader()
+        revalidator.revalidate()
+    },[savefavorite])
+
     return(
         <section className="pet-section">
             {
-                favoriteData.map((elm) => {
+                petFavorites.map((elm) => {
                     return(
                         <div key={elm.id} className="pet-box">
                             <div className="pet-box__favorite-btn">
-                                <FavoriteBtn elm={elm} save={setSaveFavorite}/>
+                                <FavoriteBtn elm={elm} animal={animal} save={setSaveFavorite}/>
                             </div>
-                            <Link to={"details/" + elm.id} className="pet-item">
+                            <Link to={`/details/${animal}/${elm.id}`} className="pet-item">
                                 <img className="pet-item__img" src={elm.image} alt={elm.breed} />
                                 <article className="pet-info">
                                     <div className="pet-header">
