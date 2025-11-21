@@ -1,4 +1,4 @@
-export default async function detailLoader({ params }){
+export default async function detailDogLoader({ params }){
     const id = params.petId
     const url = new URL(`http://localhost:4000/dogs/${id}`)
 

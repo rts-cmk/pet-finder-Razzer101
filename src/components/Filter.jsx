@@ -6,11 +6,16 @@ export default function Filter(){
 
     const navigate = useNavigate()
 
+    const handleClick = (elm) => {
+        localStorage.setItem("animal", `${elm}`)
+        navigate(`/${elm}`)
+    }
+
     return(
         <section className="filter">
             {
                 filters.map((elm) => {
-                    return <button onClick={() => navigate(`/${elm}`)} className="filter__option" key={elm}>{elm}</button>
+                    return <button onClick={() => handleClick(elm)} className="filter__option" key={elm}>{elm}</button>
                 })
             }
         </section>

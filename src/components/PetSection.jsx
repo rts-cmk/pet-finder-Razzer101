@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function PetSection(){
 
     const pets = useLoaderData()
+    const animal = localStorage.getItem("animal")
 
     const [savefavorite, setSaveFavorite] = useState(JSON.parse(localStorage.getItem("favorites")) || [])
     localStorage.setItem("favorites", JSON.stringify(savefavorite))
@@ -19,7 +20,7 @@ export default function PetSection(){
                             <div className="pet-box__favorite-btn">
                                 <FavoriteBtn elm={elm} save={setSaveFavorite}/>
                             </div>
-                            <Link to={"details/" + elm.id} className="pet-item">
+                            <Link to={`/details/${animal}/${elm.id}`} className="pet-item">
                                 <img className="pet-item__img" src={elm.image} alt={elm.breed} />
                                 <article className="pet-info">
                                     <div className="pet-header">

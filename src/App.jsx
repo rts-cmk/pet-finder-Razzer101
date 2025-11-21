@@ -5,9 +5,11 @@ import Favorites from './pages/Favorites'
 import Error from './pages/Error'
 import dogLoader from './loaders/dogLoader'
 import catLoader from './loaders/catLoader'
-import detailLoader from './loaders/detailLoader'
+import detailDogLoader from './loaders/detailDogLoader'
 import favoriteLoader from './loaders/favoriteLoader'
 import PetSection from './components/PetSection'
+import DetailSection from './components/DetailSection'
+import detailCatLoader from './loaders/detailCatLoader'
 
 function App() {
 
@@ -29,10 +31,22 @@ function App() {
       }
     ]
   },{
-    path: "/details/:petId",
+    path: "/details",
     element: <Details/>,
-    loader: detailLoader,
-    hydrateFallbackElement: <p>Loading...</p>
+    children: [
+      {
+        path:"dogs/:petId",
+        element: <DetailSection/>,
+        loader: detailDogLoader,
+        hydrateFallbackElement: <p>Loading...</p>,
+      },
+      {
+        path:"cats/:petId",
+        element: <DetailSection/>,
+        loader: detailCatLoader,
+        hydrateFallbackElement: <p>Loading...</p>,
+      }
+    ]
   },{
     path: "/favorites",
     element: <Favorites/>,
