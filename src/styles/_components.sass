@@ -109,9 +109,13 @@
         box-shadow: 5px 5px 15px 1px #57419d3e
         padding: 5px 20px
         border-radius: 20px
+        border: none
 
         &:first-child
             margin-left: 0
+
+        &::first-letter
+            text-transform: uppercase
 
 /* #endregion */
 
@@ -147,6 +151,7 @@
     display: flex
     flex-direction: column
     padding: 0 1.5em
+    align-items: center
 
     .pet-item
         display: flex

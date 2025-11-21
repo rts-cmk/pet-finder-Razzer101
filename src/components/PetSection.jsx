@@ -1,9 +1,11 @@
-import { Link } from "react-router"
+import { Link, useLoaderData } from "react-router"
 import { LuMapPin } from "react-icons/lu";
 import FavoriteBtn from "./FavoriteBtn";
 import { useState } from "react";
 
-export default function PetSection({ petData }){
+export default function PetSection(){
+
+    const pets = useLoaderData()
 
     const [savefavorite, setSaveFavorite] = useState(JSON.parse(localStorage.getItem("favorites")) || [])
     localStorage.setItem("favorites", JSON.stringify(savefavorite))
@@ -11,7 +13,7 @@ export default function PetSection({ petData }){
     return(
         <section className="pet-section">
             {
-                petData.map((elm) => {
+                pets.map((elm) => {
                     return(
                         <div key={elm.id} className="pet-box">
                             <div className="pet-box__favorite-btn">

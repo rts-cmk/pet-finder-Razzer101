@@ -1,12 +1,16 @@
+import { useNavigate } from "react-router"
+
 export default function Filter(){
 
-    const filters = ["Cats", "Dogs", "Birds", "Other"]
+    const filters = ["cats", "dogs", "birds", "other"]
+
+    const navigate = useNavigate()
 
     return(
         <section className="filter">
             {
                 filters.map((elm) => {
-                    return <p className="filter__option" key={elm}>{elm}</p>
+                    return <button onClick={() => navigate(`/${elm}`)} className="filter__option" key={elm}>{elm}</button>
                 })
             }
         </section>

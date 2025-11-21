@@ -3,17 +3,31 @@ import Home from './pages/Home'
 import Details from './pages/Details'
 import Favorites from './pages/Favorites'
 import Error from './pages/Error'
-import petsLoader from './loaders/petsLoader'
+import dogLoader from './loaders/dogLoader'
+import catLoader from './loaders/catLoader'
 import detailLoader from './loaders/detailLoader'
 import favoriteLoader from './loaders/favoriteLoader'
+import PetSection from './components/PetSection'
 
 function App() {
 
   const browserRouter = createBrowserRouter([{
     path: "/",
     element: <Home/>,
-    loader: petsLoader,
-    hydrateFallbackElement: <p>Loading...</p>
+    children: [
+      {
+        path:"dogs",
+        element: <PetSection/>,
+        loader: dogLoader,
+        hydrateFallbackElement: <p>Loading...</p>,
+      },
+      {
+        path:"cats",
+        element: <PetSection/>,
+        loader: catLoader,
+        hydrateFallbackElement: <p>Loading...</p>,
+      }
+    ]
   },{
     path: "/details/:petId",
     element: <Details/>,
