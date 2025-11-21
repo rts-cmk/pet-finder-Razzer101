@@ -17,7 +17,7 @@ export default function PetSection({ animal }){
                     return(
                         <div key={elm.id} className="pet-box">
                             <div className="pet-box__favorite-btn">
-                                <FavoriteBtn elm={elm} save={setSaveFavorite}/>
+                                <FavoriteBtn elm={elm} animal={animal} save={setSaveFavorite}/>
                             </div>
                             <Link to={`/details/${animal}/${elm.id}`} className="pet-item">
                                 <img className="pet-item__img" src={elm.image} alt={elm.breed} />
