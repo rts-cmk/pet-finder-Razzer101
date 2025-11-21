@@ -13,19 +13,22 @@ import detailCatLoader from './loaders/detailCatLoader'
 
 function App() {
 
+  const dogs = "dogs"
+  const cats = "cats"
+
   const browserRouter = createBrowserRouter([{
     path: "/",
     element: <Home/>,
     children: [
       {
-        path:"dogs",
-        element: <PetSection/>,
+        path: `${dogs}`,
+        element: <PetSection animal={dogs}/>,
         loader: dogLoader,
         hydrateFallbackElement: <p>Loading...</p>,
       },
       {
-        path:"cats",
-        element: <PetSection/>,
+        path: `${cats}`,
+        element: <PetSection animal={cats}/>,
         loader: catLoader,
         hydrateFallbackElement: <p>Loading...</p>,
       }
@@ -35,14 +38,14 @@ function App() {
     element: <Details/>,
     children: [
       {
-        path:"dogs/:petId",
-        element: <DetailSection/>,
+        path: `${dogs}/:petId`,
+        element: <DetailSection animal={dogs}/>,
         loader: detailDogLoader,
         hydrateFallbackElement: <p>Loading...</p>,
       },
       {
-        path:"cats/:petId",
-        element: <DetailSection/>,
+        path: `${cats}/:petId`,
+        element: <DetailSection animal={cats}/>,
         loader: detailCatLoader,
         hydrateFallbackElement: <p>Loading...</p>,
       }

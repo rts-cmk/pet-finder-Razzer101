@@ -3,10 +3,9 @@ import { LuMapPin } from "react-icons/lu";
 import FavoriteBtn from "./FavoriteBtn";
 import { useState } from "react";
 
-export default function PetSection(){
+export default function PetSection({ animal }){
 
     const pets = useLoaderData()
-    const animal = localStorage.getItem("animal")
 
     const [savefavorite, setSaveFavorite] = useState(JSON.parse(localStorage.getItem("favorites")) || [])
     localStorage.setItem("favorites", JSON.stringify(savefavorite))

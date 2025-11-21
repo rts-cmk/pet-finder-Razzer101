@@ -3,10 +3,9 @@ import { PiGenderIntersex, PiPawPrint } from "react-icons/pi";
 import { LuMapPin } from "react-icons/lu";
 import Error from "../pages/Error";
 
-export default function DetailSection(){
+export default function DetailSection({ animal }){
     const petDetails = useLoaderData()
     const navigate = useNavigate()
-    const animal = localStorage.getItem("animal")
 
     if(petDetails === null){
         return <Error/>
