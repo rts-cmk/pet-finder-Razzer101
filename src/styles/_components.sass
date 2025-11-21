@@ -1,0 +1,310 @@
+@use "variables" as var
+@use "mixins" as mix
+
+/* #region Intro */
+.intro
+    display: flex
+    flex-direction: column
+    position: absolute
+    width: 100%
+    height: 100dvh
+    text-align: center
+    z-index: 3
+    background-color: var.$background-color
+
+    &__img
+        width: 100%
+        height: 400px
+
+    &__title
+        font-size: 2.8vmax
+        font-weight: 800
+        margin: 1em 0 1em 0
+
+    &__subtitle
+        color: var.$p-color
+        padding: 0 10vw
+        font-size: 2vmax
+        margin: 0
+
+    &__skip-btn
+        margin: auto 3em 2em 3em
+        background-color: var.$element-color
+        color: var.$btn-color
+        border: none
+        padding: 1em 0
+        font-size: 2vmax
+        font-weight: 500
+        border-radius: 30px
+        @include mix.element-shadow
+/* #endregion */
+
+/* #region Header */
+.header
+    display: flex
+    padding: 1.5em 1.5em 0 1.5em
+    align-items: center
+    margin-bottom: 1.5em
+
+    &__profile-picture
+        width: 15vmin
+        aspect-ratio: 1/1
+        object-fit: cover
+        border-radius: 50%
+        margin-right: 1em
+        border: 2px solid #ffffff
+        @include mix.element-shadow
+
+    &__location
+        margin: 0 auto 10px 0
+        font-size: 4.4vmin
+
+        svg
+            font-size: 1.3em
+            position: relative
+            top: 5px
+
+            &:first-child
+                color: var.$element-color
+                margin-right: 5px
+
+            &:last-child
+                color: var.$icons-color
+                margin-left: 10px
+
+    &__notify-btn
+        justify-self: end
+        padding: 3.5vmin
+        line-height: 0px
+        color: var.$icons-color
+        background-color: transparent
+        border: none
+        border-radius: 50%
+        @include mix.element-shadow
+
+        svg
+            font-size: 6.5vmin
+/* #endregion */
+
+/* #region Filter */
+.filter
+    display: flex
+    overflow: scroll
+    white-space: nowrap
+    scroll-snap-type: x mandatory
+    -ms-overflow-style: none
+    scrollbar-width: none
+    height: 90px
+    align-items: center
+    padding: 0 1.5em
+    margin-bottom: 1em
+
+    &::-webkit-scrollbar
+        display: none
+
+    &__option
+        margin: 0 15px
+        scroll-snap-stop: always
+        scroll-snap-align: end
+        font-size: 2.3vmax
+        color: var.$element-color
+        @include mix.element-shadow
+        padding: 5px 20px
+        border-radius: 20px
+        border: none
+
+        &:first-child
+            margin-left: 0
+
+        &::first-letter
+            text-transform: uppercase
+
+/* #endregion */
+
+/* #region Pets */
+
+.pet-box
+    display: flex
+    flex-direction: column
+    align-items: end
+
+    &:last-child
+        margin-bottom: 6em
+
+    &__favorite-btn
+        height: 0
+
+        button
+            position: relative
+            top: 15px
+            right: 15px
+            border-radius: 50%
+            @include mix.element-shadow
+            color: var.$favorite-btn-color
+            border: none
+            align-self: start
+            padding: 1.5vmin 1.8vmin
+            svg
+                font-size: 4vmin
+                position: relative
+                top: 3px
+
+.pet-section
+    display: flex
+    flex-direction: column
+    padding: 0 1.5em
+    align-items: center
+
+    .pet-item
+        display: flex
+        padding: 10px 10px 0 10px
+        text-decoration: none
+        @include mix.element-shadow
+        margin-bottom: 2em
+        border-radius: 20px
+
+        &__img
+            width: 32vw
+            aspect-ratio: 1/1
+            object-fit: cover
+            margin-right: 15px
+
+    .pet-info
+
+        .pet-header
+            display: flex
+            justify-content: space-between
+            align-items: center
+
+            &__title
+                margin: 10px 0 10px 0
+                color: #000000
+                font-size: 5.9vmin
+
+        &__location
+            color: var.$p-color
+            margin: 0 0 10px 0
+            font-size: 3.7vmin
+
+            svg
+                color: var.$icons-color
+                position: relative
+                top: 2px
+                margin-right: 5px
+
+        &__description
+            margin: 0
+            color: #4F4F4F
+            font-size: 3.7vmin
+/* #endregion */
+
+/* #region Nav */
+.navigation
+    width: 100%
+    display: flex
+    justify-content: space-around
+    position: fixed
+    bottom: 0
+    z-index: 2
+    background-color: var.$background-color
+    padding: 1.8em 0
+    border-radius: 20px 20px 0 0
+    box-shadow: 0 -5px 15px 1px #57419d1f
+
+    &__route
+        font-size: 1.8em
+        @include mix.element-shadow
+        border-radius: 50%
+        padding: 9px
+        line-height: 0
+        border: none
+/* #endregion */
+
+/* #region Details */
+.pet-details
+    height: 100dvh
+    background-image: url("../../public/background.svg")
+    background-size: cover
+    display: flex
+    flex-direction: column
+
+    &__img
+        width: 60vmin
+        margin-top: 5em
+        align-self: end
+
+    .details-info
+        background-color: var.$background-color
+        padding: 1.5em
+        border-radius: 20px 20px 0 0
+        height: 100%
+        display: flex
+        flex-direction: column
+
+        &__title
+            margin: 0
+            font-size: 6.4vmin
+
+        &__location
+            font-size: 3.7vmin
+            color: var.$p-color
+
+            svg
+                color: var.$icons-color
+                position: relative
+                top: 2px
+                margin-right: 8px
+
+        .details-extra-info
+            list-style: none
+            padding: 0
+            margin: 0
+            display: flex
+
+            li
+                display: flex
+                align-items: center
+
+                div
+                    font-size: 7vmin
+                    @include mix.element-shadow
+                    border-radius: 50%
+                    line-height: 0
+                    padding: 7px
+                    margin-right: 20px
+
+                p
+                    margin: 0
+
+                    &::first-letter
+                        text-transform: uppercase
+
+            &__breed
+                margin-right: 15vw
+
+                svg
+                    color: var.$breed-color
+
+            &__gender
+                svg
+                    color: var.$gender-color
+
+        &__description
+            color: var.$p-color
+            font-size: 4vmin
+            word-spacing: 3px
+            line-height: 1.5em
+
+        &__home
+            text-align: center
+            text-decoration: none
+            margin: auto 1em 15px 1em
+            background-color: var.$element-color
+            color: var.$btn-color
+            border: none
+            padding: 15px 0
+            font-size: 2vmax
+            font-weight: 500
+            border-radius: 30px
+            @include mix.element-shadow
+/* #endregion */
